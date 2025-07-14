@@ -20,6 +20,10 @@ exports.protect = async (req, res, next) => {
     }
 
     try {
+      if (!process.env.JWT_SECRET) {
+        throw new Error('JWT_SECRET is not defined');
+      }
+      
       // Verify token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       
@@ -43,6 +47,7 @@ exports.protect = async (req, res, next) => {
       req.user = user;
       next();
     } catch (error) {
+      console.error('Token verification error:', error);
       return res.status(401).json({
         success: false,
         message: 'Token is not valid.'
