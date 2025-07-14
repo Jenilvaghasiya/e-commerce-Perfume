@@ -74,7 +74,7 @@ Create a `.env` file in the backend directory:
 
 ```env
 # MongoDB Configuration
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/ignite_perfume
+MONGODB_URI=mongodb://localhost:27017/e-commerce-Perfume
 
 # JWT Configuration
 JWT_SECRET=your_super_secret_jwt_key_here

@@ -56,7 +56,7 @@ app.use('*', (req, res) => {
 });
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ignite_perfume', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/e-commerce-Perfume', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
