@@ -101,6 +101,9 @@ STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
 # Development mode
 npm run dev
 
+# Check MongoDB connection
+npm run check-db
+
 # Production mode
 npm start
 ```
