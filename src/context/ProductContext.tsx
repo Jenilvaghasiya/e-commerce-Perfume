@@ -8,6 +8,8 @@ interface Product {
   image: string;
   category: string;
   inStock: boolean;
+  brand: string;
+  rating: number;
   featured: boolean;
 }
 
@@ -38,6 +40,8 @@ const initialProducts: Product[] = [
     image: 'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
     category: 'Unisex',
     inStock: true,
+    brand: 'Ignite',
+    rating: 4.8,
     featured: true
   },
   {
@@ -48,6 +52,8 @@ const initialProducts: Product[] = [
     image: 'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
     category: 'Women',
     inStock: true,
+    brand: 'Luxury',
+    rating: 4.9,
     featured: true
   },
   {
@@ -58,6 +64,8 @@ const initialProducts: Product[] = [
     image: 'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
     category: 'Men',
     inStock: true,
+    brand: 'Premium',
+    rating: 4.6,
     featured: false
   },
   {
@@ -68,6 +76,8 @@ const initialProducts: Product[] = [
     image: 'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
     category: 'Women',
     inStock: true,
+    brand: 'Classic',
+    rating: 4.7,
     featured: true
   }
 ];
