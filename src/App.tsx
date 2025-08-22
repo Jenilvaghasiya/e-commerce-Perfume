@@ -16,6 +16,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { ProductProvider } from './context/ProductContext';
+import { CartProvider } from './context/CartContext';
 import { OrderProvider } from './context/OrderContext';
 import OrdersPage from './pages/OrdersPage';
 
@@ -68,28 +69,30 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <ProductProvider>
-          <OrderProvider>
-            <Router>
+        <Router>
+          <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+            <Navbar />
+            <main className="flex-1">
               <AnimatePresence mode="wait">
-                {isLoading ? (
-                  <LoadingScreen key="loading" />
-                ) : (
-                  <motion.div
-                    key="app"
-                    className="min-h-screen bg-gray-50"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Navbar />
-                    <main>
-                      <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/shop" element={<ShopPage />} />
-                        <Route path="/customize" element={<CustomizePage />} />
-                        <Route path="/cart" element={<CartPage />} />
-                        <Route path="/checkout" element={<CheckoutPage />} />
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/shop" element={<ShopPage />} />
+                  <Route path="/customize" element={<CustomizePage />} />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/checkout" element={<CheckoutPage />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
+                  <Route path="/orders" element={<OrdersPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/admin" element={<AdminDashboard />} />
+                </Routes>
+              </AnimatePresence>
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </CartProvider>
                         <Route path="/orders" element={<OrdersPage />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />

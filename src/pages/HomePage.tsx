@@ -1,12 +1,29 @@
 import React from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Sparkles, Heart, ShoppingBag, Users, Award } from 'lucide-react';
 import AnimatedHero from '../components/AnimatedHero';
 import ProductGrid from '../components/ProductGrid';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { useProducts } from '../context/ProductContext';
+import { useCart } from '../context/CartContext';
 
 const HomePage: React.FC = () => {
+  const { getFeaturedProducts } = useProducts();
+  const { addToCart } = useCart();
+  const [wishlist, setWishlist] = useState<string[]>([]);
+  
+  const featuredProducts = getFeaturedProducts();
+  
+  const handleToggleWishlist = (productId: string) => {
+    setWishlist(prev => 
+      prev.includes(productId) 
+        ? prev.filter(id => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
   const features = [
     {
       icon: <Sparkles className="w-8 h-8" />,
@@ -111,7 +128,12 @@ const HomePage: React.FC = () => {
             </p>
           </motion.div>
 
-          <ProductGrid limit={6} featured={true} />
+          <ProductGrid 
+            products={featuredProducts}
+            onAddToCart={addToCart}
+            onToggleWishlist={handleToggleWishlist}
+            wishlist={wishlist}
+          />
 
           <motion.div
             className="text-center mt-12"

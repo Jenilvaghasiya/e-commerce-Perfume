@@ -4,13 +4,21 @@ interface Product {
   id: string;
   name: string;
   price: number;
+  originalPrice?: number;
   description: string;
   image: string;
   category: string;
   inStock: boolean;
   brand: string;
   rating: number;
+  reviews: number;
   featured: boolean;
+  discount?: number;
+  notes: {
+    top: string[];
+    middle: string[];
+    base: string[];
+  };
 }
 
 interface ProductContextType {
@@ -36,13 +44,21 @@ const initialProducts: Product[] = [
     id: '1',
     name: 'Midnight Essence',
     price: 89.99,
+    originalPrice: 99.99,
     description: 'A mysterious and alluring fragrance with deep woody notes',
     image: 'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
     category: 'Unisex',
     inStock: true,
     brand: 'Ignite',
     rating: 4.8,
-    featured: true
+    reviews: 124,
+    featured: true,
+    discount: 10,
+    notes: {
+      top: ['Bergamot', 'Lemon'],
+      middle: ['Lavender', 'Rose'],
+      base: ['Sandalwood', 'Musk']
+    }
   },
   {
     id: '2',
@@ -54,7 +70,13 @@ const initialProducts: Product[] = [
     inStock: true,
     brand: 'Luxury',
     rating: 4.9,
-    featured: true
+    reviews: 89,
+    featured: true,
+    notes: {
+      top: ['Rose', 'Jasmine'],
+      middle: ['Peony', 'Lily'],
+      base: ['White Musk', 'Cedar']
+    }
   },
   {
     id: '3',
@@ -66,19 +88,33 @@ const initialProducts: Product[] = [
     inStock: true,
     brand: 'Premium',
     rating: 4.6,
-    featured: false
+    reviews: 67,
+    featured: false,
+    notes: {
+      top: ['Sea Salt', 'Citrus'],
+      middle: ['Marine', 'Mint'],
+      base: ['Driftwood', 'Amber']
+    }
   },
   {
     id: '4',
     name: 'Vanilla Dreams',
     price: 69.99,
+    originalPrice: 79.99,
     description: 'Warm and comforting vanilla with hints of caramel',
     image: 'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg',
     category: 'Women',
     inStock: true,
     brand: 'Classic',
     rating: 4.7,
-    featured: true
+    reviews: 156,
+    featured: true,
+    discount: 12,
+    notes: {
+      top: ['Vanilla', 'Caramel'],
+      middle: ['Honey', 'Cinnamon'],
+      base: ['Tonka Bean', 'Sandalwood']
+    }
   }
 ];
 
