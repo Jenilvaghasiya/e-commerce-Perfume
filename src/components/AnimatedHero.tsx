@@ -11,7 +11,7 @@ const slides = [
     image: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg",
     cta: "Start Customizing",
     link: "/customize",
-    gradient: "from-purple-600 via-pink-600 to-rose-600"
+    gradient: "from-black via-gray-900 to-blue-900"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const slides = [
     image: "https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg",
     cta: "Shop Now",
     link: "/shop",
-    gradient: "from-blue-600 via-purple-600 to-pink-600"
+    gradient: "from-black via-blue-900 to-cyan-900"
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const slides = [
     image: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg",
     cta: "Learn More",
     link: "/about",
-    gradient: "from-emerald-600 via-teal-600 to-cyan-600"
+    gradient: "from-black via-gray-800 to-blue-800"
   }
 ];
 
@@ -94,7 +94,7 @@ const AnimatedHero: React.FC = () => {
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  className="text-xl md:text-2xl mb-8 text-gray-100"
+                  className="text-xl md:text-2xl mb-8 text-white"
                 >
                   {slides[currentSlide].subtitle}
                 </motion.p>
@@ -105,9 +105,8 @@ const AnimatedHero: React.FC = () => {
                   transition={{ delay: 0.6, duration: 0.8 }}
                 >
                   <Button
-                    variant="gradient"
                     size="lg"
-                    className="text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                    className="text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 bg-neon-gradient text-black font-bold animate-neon-glow"
                   >
                     {slides[currentSlide].cta}
                     <Sparkles className="ml-2 w-5 h-5" />
@@ -158,7 +157,7 @@ const AnimatedHero: React.FC = () => {
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
         <motion.div
-          className="h-full bg-gradient-to-r from-purple-400 to-pink-400"
+          className="h-full bg-neon-gradient"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: 5, ease: "linear" }}
