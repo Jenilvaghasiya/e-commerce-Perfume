@@ -2,11 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-const { connectDB, testConnection } = require('./config/database');
-
-// Load environment variables
-dotenv.config({ path: path.join(__dirname, '.env') });
-
+const connectDB = require("./config/database");
+dotenv.config();
+const testRoutes = require("./routes/testRoutes");
 // Import routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
@@ -39,6 +37,8 @@ app.use((req, res, next) => {
 });
 
 // Routes
+app.use("/api", testRoutes);
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
@@ -46,7 +46,9 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/database', databaseRoutes);
-
+app.use("/test", (req,res) => {
+    res.send("Server running successfully")
+})
 // Health check route
 app.get('/api/health', (req, res) => {
   res.json({ 
@@ -73,17 +75,14 @@ app.use('*', (req, res) => {
 // Start server with database connection
 connectDB()
 .then(() => {
-  // Test the connection
-  setTimeout(async () => {
-    await testConnection();
-  }, 1000);
-  
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📱 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
     console.log(`🔗 API Base URL: http://localhost:${PORT}/api`);
-    console.log(`🗄️ MongoDB Database: ${process.env.MONGODB_URI}`);
+        console.log(`🗄️ MongoDB Database: ${process.env.MONGO_URI}`);
+
+    
   });
 })
 .catch((error) => {
