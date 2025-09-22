@@ -4,27 +4,27 @@ import { Award, Users, Leaf, Heart, Star, Globe } from 'lucide-react';
 const AboutPage: React.FC = () => {
   const team = [
     {
-      name: 'Elena Rodriguez',
+      name: 'Hency Depani',
       role: 'Master Perfumer',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQGbZlGBGLifwQ/profile-displayphoto-shrink_800_800/B4DZTZUf4hGkAc-/0/1738812820337?e=1761177600&v=beta&t=UEP26qeGsNe-PgXoE-LKD3UVbdj3YPzzEExUvyGaL4w',
       bio: 'With over 15 years of experience in luxury fragrance creation, Elena leads our scent development team.'
     },
     {
-      name: 'Marcus Chen',
+      name: 'Jenil Vaghasiya',
       role: 'Creative Director',
-      image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQG8R8_tVouoZA/profile-displayphoto-scale_400_400/B4DZlOcAc2HwAg-/0/1757957590199?e=1761177600&v=beta&t=lB0KCn4cjEpFTE4-U3eFx9DbgMdTtHwg1zJE87iAUao',
       bio: 'Marcus brings innovative design and brand vision to create unforgettable fragrance experiences.'
     },
     {
-      name: 'Sarah Johnson',
+      name: 'Bhumika Makawana',
       role: 'Fragrance Consultant',
-      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQGI6q337uK3aw/profile-displayphoto-shrink_400_400/B56ZVyEXykHQAg-/0/1741375505105?e=1761177600&v=beta&t=RlY-cnKbYqqU7G07BfavLQd__M5xvlckSmiDO6kHZn8',
       bio: 'Sarah helps customers discover their perfect scent through personalized consultations and expertise.'
     },
     {
-      name: 'David Park',
+      name: 'Prashant Sarvaiya',
       role: 'Quality Assurance',
-      image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQFaw3rEng4z-A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1690257145912?e=1761177600&v=beta&t=mqmlHEb2n7NeNrncqb72XrnycIf55HLdLl6ytkC0CwM',
       bio: 'David ensures every bottle meets our highest quality standards before reaching our customers.'
     }
   ];
