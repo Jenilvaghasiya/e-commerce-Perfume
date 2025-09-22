@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, Menu, X, Heart, Search } from 'lucide-react';
+import { ShoppingCart, User, Menu, X, Search } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import IGBlack from '../IG BLACK.png';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +22,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-neon-gradient rounded-full flex items-center justify-center shadow-lg animate-neon-glow">
-              <Heart className="w-5 h-5 text-white" />
-            </div>
+            <img src={IGBlack} alt="Ignite Perfume logo" className="w-12 h-12 object-contain" />
             <span className="text-2xl font-bold text-neon-blue">
               Ignite Perfume
             </span>

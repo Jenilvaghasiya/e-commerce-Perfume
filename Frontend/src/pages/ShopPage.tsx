@@ -10,10 +10,14 @@ import { Slider } from '../components/ui/slider';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { useProducts } from '../context/ProductContext';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const ShopPage: React.FC = () => {
   const { products, loading } = useProducts();
   const { addToCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedBrand, setSelectedBrand] = useState('all');
@@ -64,7 +68,7 @@ const ShopPage: React.FC = () => {
         case 'price-high':
           return b.price - a.price;
         case 'rating':
-          return b.rating - a.rating;
+          return (b.rating || 0) - (a.rating || 0);
         case 'newest':
           return new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime();
         default:
@@ -88,12 +92,16 @@ const ShopPage: React.FC = () => {
   };
 
   const handleAddToCart = (product: any) => {
+    if (!user) {
+      alert('Please login to add items to your cart.');
+      navigate('/login');
+      return;
+    }
     addToCart({
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
-      quantity: 1
+      image: product.image
     });
   };
 
@@ -334,7 +342,7 @@ const ShopPage: React.FC = () => {
                             <Star
                               key={i}
                               className={`w-4 h-4 ${
-                                i < Math.floor(product.rating)
+                                i < Math.floor(product.rating || 0)
                                   ? 'fill-yellow-400 text-yellow-400'
                                   : 'text-gray-300'
                               }`}

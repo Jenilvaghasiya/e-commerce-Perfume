@@ -19,7 +19,7 @@ const slides = [
     subtitle: "Explore our curated selection of luxury perfumes",
     image: "https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg",
     cta: "Shop Now",
-    link: "/shop",
+    link: "shop",
     gradient: "from-black via-blue-900 to-cyan-900"
   },
   {

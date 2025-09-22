@@ -1,6 +1,8 @@
 import React from 'react';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 interface Product {
   id: string;
@@ -19,8 +21,15 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
+    if (!user) {
+      alert('Please login to add items to your cart.');
+      navigate('/login');
+      return;
+    }
     addToCart({
       id: product.id,
       name: product.name,
