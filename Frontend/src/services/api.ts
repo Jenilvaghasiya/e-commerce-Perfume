@@ -1,7 +1,7 @@
 // Simple API client for the frontend
 // Base URL priority: Vite env -> default localhost:3000
 
-const API_URL: string = (import.meta as any)?.env?.VITE_API_URL || 'http://localhost:3000';
+const API_URL: string = (import.meta as any)?.env?.VITE_API_URL || 'https://e-commerce-perfume.onrender.com';
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
