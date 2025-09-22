@@ -106,7 +106,7 @@ const AnimatedHero: React.FC = () => {
                 >
                   <Button
                     size="lg"
-                    className="text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 bg-neon-gradient text-black font-bold animate-neon-glow"
+                    className="text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 bg-white text-black font-bold border border-gray-300 hover:bg-gray-100"
                   >
                     {slides[currentSlide].cta}
                     <Sparkles className="ml-2 w-5 h-5" />

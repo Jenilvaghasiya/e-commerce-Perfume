@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img src={IGBlack} alt="Ignite Perfume logo" className="w-12 h-12 object-contain" />
-            <span className="text-2xl font-bold text-neon-blue">
+            <span className="text-3xl font-bold text-white">
               Ignite Perfume
             </span>
           </Link>
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             <Link to="/cart" className="relative p-2 text-white hover:text-neon-blue transition-colors duration-200">
               <ShoppingCart className="w-5 h-5" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-neon-blue text-black text-xs rounded-full w-5 h-5 flex items-center justify-center animate-neon-glow">
+                <span className="absolute -top-1 -right-1 bg-white text-black text-xs rounded-full w-5 h-5 flex items-center justify-center border border-gray-300">
                   {itemCount}
                 </span>
               )}
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <Link to="/login" className="bg-neon-gradient text-black px-4 py-2 rounded-lg hover:animate-neon-glow transition-all duration-200 font-semibold">
+              <Link to="/login" className="bg-white text-black px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition-all duration-200 font-semibold">
                 Login
               </Link>
             )}
