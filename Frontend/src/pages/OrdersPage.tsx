@@ -452,7 +452,7 @@ const OrdersPage: React.FC = () => {
                     <div className="bg-gray-50 p-4 rounded-lg space-y-2">
                       <div className="flex justify-between">
                         <span>Subtotal</span>
-                        <span>${selectedOrder.total.toFixed(2)}</span>
+                        <span>₹{selectedOrder.total.toFixed(2)}</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Shipping</span>
