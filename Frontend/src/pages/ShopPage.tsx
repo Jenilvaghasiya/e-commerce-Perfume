@@ -22,6 +22,7 @@ const ShopPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedBrand, setSelectedBrand] = useState('all');
   const [priceRange, setPriceRange] = useState([0, 500]);
+  const [minRating, setMinRating] = useState(0);
   const [sortBy, setSortBy] = useState('name');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
@@ -54,8 +55,9 @@ const ShopPage: React.FC = () => {
       const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
       const matchesBrand = selectedBrand === 'all' || (product as any).brand === selectedBrand;
       const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
+      const matchesRating = (product.rating || 0) >= minRating;
       
-      return matchesSearch && matchesCategory && matchesBrand && matchesPrice;
+      return matchesSearch && matchesCategory && matchesBrand && matchesPrice && matchesRating;
     });
 
     // Sort products
@@ -195,10 +197,37 @@ const ShopPage: React.FC = () => {
                   </Select>
                 </div>
 
+                {/* Rating Filter */}
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Minimum Rating</label>
+                  <div className="flex items-center space-x-2">
+                    {[1,2,3,4,5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setMinRating(star === minRating ? 0 : star)}
+                        className="focus:outline-none"
+                        aria-label={`Set minimum rating ${star}`}
+                      >
+                        <Star className={`w-5 h-5 ${star <= minRating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
+                      </button>
+                    ))}
+                    {minRating > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => setMinRating(0)}
+                        className="ml-3 text-sm text-gray-600 hover:text-gray-800 underline"
+                      >
+                        Clear
+                      </button>
+                    )}
+                  </div>
+                </div>
+
                 {/* Price Range */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Price Range: ${priceRange[0]} - ${priceRange[1]}
+                    Price Range: ₹{priceRange[0]} - ₹{priceRange[1]}
                   </label>
                   <Slider
                     value={priceRange}
@@ -357,11 +386,11 @@ const ShopPage: React.FC = () => {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <span className="text-2xl font-bold text-purple-600">
-                            ${product.price}
+                            ₹{product.price}
                           </span>
                           {product.originalPrice && (
                             <span className="text-sm text-gray-500 line-through ml-2">
-                              ${product.originalPrice}
+                              ₹{product.originalPrice}
                             </span>
                           )}
                         </div>
