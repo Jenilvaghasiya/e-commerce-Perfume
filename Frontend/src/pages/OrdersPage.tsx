@@ -465,7 +465,7 @@ const OrdersPage: React.FC = () => {
                       <div className="border-t pt-2">
                         <div className="flex justify-between font-semibold">
                           <span>Total</span>
-                          <span>${(selectedOrder.total * 1.08).toFixed(2)}</span>
+                          <span>₹{(selectedOrder.total * 1.08).toFixed(2)}</span>
                         </div>
                       </div>
                     </div>
