@@ -215,7 +215,7 @@ const AdminDashboard: React.FC = () => {
                       <tr key={order.id} className="border-b hover:bg-gray-50">
                         <td className="py-3 px-4">#{order.id}</td>
                         <td className="py-3 px-4">{order.email }</td>
-                        <td className="py-3 px-4">${order.total}</td>
+                        <td className="py-3 px-4">₹{order.total}</td>
                         <td className="py-3 px-4">
                           <select
                             value={order.status}
@@ -319,7 +319,7 @@ const AdminDashboard: React.FC = () => {
                     <tr key={order.id} className="border-b hover:bg-gray-50">
                       <td className="py-4 px-6">#{order.id}</td>
                       <td className="py-4 px-6">{order.email}</td>
-                      <td className="py-4 px-6">${order.total}</td>
+                      <td className="py-4 px-6">₹{order.total}</td>
                       <td className="py-4 px-6">
                         <select
                           value={order.status}
@@ -372,7 +372,7 @@ const AdminDashboard: React.FC = () => {
                       <td className="py-4 px-6">{c.name}</td>
                       <td className="py-4 px-6">{c.bottleSize}</td>
                       <td className="py-4 px-6">{c.concentration}</td>
-                      <td className="py-4 px-6">${c.totalPrice}</td>
+                      <td className="py-4 px-6">₹{c.totalPrice}</td>
                       <td className="py-4 px-6">{(c.createdAt || '').toString().split('T')[0]}</td>
                       <td className="py-4 px-6">
                         <button
