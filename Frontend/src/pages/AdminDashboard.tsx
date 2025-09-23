@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Edit, Trash2, Eye, Users, Package, ShoppingCart, DollarSign, TrendingUp } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, Users, Package, ShoppingCart, IndianRupee, TrendingUp } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useProducts } from '../context/ProductContext';
 import { useOrders } from '../context/OrderContext';
@@ -190,7 +190,7 @@ const AdminDashboard: React.FC = () => {
                     <p className="text-3xl font-bold text-gray-900">₹{computedStats.totalRevenue.toFixed(2)}</p>
                   </div>
                   <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                    <DollarSign className="w-6 h-6 text-yellow-600" />
+                    <IndianRupee className="w-6 h-6 text-yellow-600" />
                   </div>
                 </div>
               </div>
@@ -420,7 +420,7 @@ const AdminDashboard: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Total Price</p>
-                    <p className="text-gray-900 font-semibold">${selectedCustomization.totalPrice}</p>
+                    <p className="text-gray-900 font-semibold">₹{selectedCustomization.totalPrice}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Date</p>
