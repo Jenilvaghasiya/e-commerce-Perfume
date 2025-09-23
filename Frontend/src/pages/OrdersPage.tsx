@@ -304,7 +304,7 @@ const OrdersPage: React.FC = () => {
                       <div className="flex items-center space-x-4 text-sm text-gray-600">
                         <span>Placed on {new Date(order.date).toLocaleDateString()}</span>
                         <span>•</span>
-                        <span>${order.total.toFixed(2)}</span>
+                        <span>₹{order.total.toFixed(2)}</span>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
@@ -420,7 +420,7 @@ const OrdersPage: React.FC = () => {
                           <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
                         </div>
                         <div className="text-right">
-                          <p className="font-semibold text-gray-900">${(item.price * item.quantity).toFixed(2)}</p>
+                          <p className="font-semibold text-gray-900">₹{(item.price * item.quantity).toFixed(2)}</p>
                         </div>
                       </div>
                     ))}
