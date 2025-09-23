@@ -123,7 +123,7 @@ const CartPage: React.FC = () => {
                   <div className="flex justify-between">
                     <span className="text-xl font-semibold text-gray-900">Total</span>
                     <span className="text-xl font-bold text-purple-600">
-                      ${(total * 1.08).toFixed(2)}
+                      ₹{(total * 1.08).toFixed(2)}
                     </span>
                   </div>
                 </div>
